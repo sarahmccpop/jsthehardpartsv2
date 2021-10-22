@@ -1,13 +1,14 @@
 // CHALLENGE 1
-function createFunction(name) {
+function createFunction() {
 	function sayHello() {
-    console.log("Hello" + name);
+    console.log("Challenge 1: Hello");
   }
   return sayHello;
 }
 
 // /*** Uncomment these to check your work! ***/
-const function1 = createFunction(" Sarah");
+
+const function1 = createFunction();
 function1(); // => should console.log('hello');
 
 
@@ -15,7 +16,7 @@ function1(); // => should console.log('hello');
 function createFunctionPrinter(input) {
 	
   function printTest(){
-    console.log(input);
+    console.log("Challenge 2: " +input);
   }
   
   return printTest;
@@ -23,6 +24,7 @@ function createFunctionPrinter(input) {
 }
 
 // /*** Uncomment these to check your work! ***/
+
 const printSample = createFunctionPrinter('sample');
 printSample(); // => should console.log('sample');
 const printHello = createFunctionPrinter('hello');
@@ -34,7 +36,7 @@ function outer() {
   let counter = 0; // this variable is outside incrementCounter's scope
   function incrementCounter () {
     counter ++;
-    console.log('counter', counter);
+    console.log('Challenger 3: counter =' + counter);
   }
   return incrementCounter;
 }
@@ -46,6 +48,7 @@ const jasCounter = outer();
 // Before your do, guess what will be logged from each function call.
 
 // /*** Uncomment these to check your work! ***/
+
 willCounter();
 willCounter();
 willCounter();
@@ -57,12 +60,13 @@ willCounter();
 function addByX(x) {
 	function adding(input){
   input += x;
-    console.log('answer is ' + input); 
+    console.log('Challenge 3B: answer is ' + input); 
   }
   return adding;
 }
 
 // /*** Uncomment these to check your work! ***/
+
 const addByTwo = addByX(2);
 addByTwo(1); // => should return 3
 addByTwo(2); // => should return 4
@@ -79,24 +83,31 @@ addByFour(5); // => should return 9
 
 // CHALLENGE 4
 function once(func) {
-	let counter = 0;
-  function addbyX() {
-    
+  let counter = 0;
+  let result = 0;
+  console.log("Result is: " +result)
+  function runOnce(num) {
+    if (counter === 0) {
+      console.log("Got to here");
+      console.log("Result is: " +result)
+      console.log('Num is ' + num);
+      result = func(num);
+      console.log("Result is: " +result)
+      counter++;
+    }
+
+    return result;
   }
-  
-  
-  
-  return function
-  
+  return runOnce;
 }
 
 // /*** Uncomment these to check your work! ***/
-// const onceFunc = once(addByTwo);
-// console.log(onceFunc(4));  // => should log 6
-// console.log(onceFunc(10));  // => should log 6
+const onceFunc = once(addByTwo);
+console.log("Challenge 4: " +onceFunc(4));  // => should log 6
+//console.log(onceFunc(10));  // => should log 6
 // console.log(onceFunc(9001));  // => should log 6
 
-
+/*
 // CHALLENGE 5
 function after(count, func) {
 
@@ -109,13 +120,13 @@ function after(count, func) {
 // afterCalled(); // => nothing is printed
 // afterCalled(); // => 'hello' is printed
 
-
+/*
 // CHALLENGE 6
 function delay(func, wait) {
 
 }
 
-
+/*
 // CHALLENGE 7
 function rollCall(names) {
 
@@ -128,7 +139,7 @@ function rollCall(names) {
 // rollCaller() // => should log 'Ruth'
 // rollCaller() // => should log 'Everyone accounted for'
 
-
+/*
 // CHALLENGE 8
 function saveOutput(func, magicWord) {
 
@@ -141,7 +152,7 @@ function saveOutput(func, magicWord) {
 // console.log(multBy2AndLog(9)); // => should log 18
 // console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
 
-
+/*
 // CHALLENGE 9
 function cycleIterator(array) {
 
@@ -155,7 +166,7 @@ function cycleIterator(array) {
 // console.log(getDay()); // => should log 'Sun'
 // console.log(getDay()); // => should log 'Fri'
 
-
+/*
 // CHALLENGE 10
 function defineFirstArg(func, arg) {
 
@@ -166,7 +177,7 @@ function defineFirstArg(func, arg) {
 // const subFrom20 = defineFirstArg(subtract, 20);
 // console.log(subFrom20(5)); // => should log 15
 
-
+/*
 // CHALLENGE 11
 function dateStamp(func) {
 
@@ -177,7 +188,7 @@ function dateStamp(func) {
 // console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
 // console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
-
+/*
 // CHALLENGE 12
 function censor() {
 
@@ -189,7 +200,7 @@ function censor() {
 // changeScene('quick', 'slow');
 // console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
 
-
+/*
 // CHALLENGE 13
 function createSecretHolder(secret) {
 
@@ -200,7 +211,7 @@ function createSecretHolder(secret) {
 // obj.getSecret() // => returns 5
 // obj.setSecret(2)
 // obj.getSecret() // => returns 2
-
+/*
 
 // CHALLENGE 14
 function callTimes() {
@@ -215,7 +226,7 @@ function callTimes() {
 // myNewFunc2(); // => 1
 // myNewFunc2(); // => 2
 
-
+/*
 // CHALLENGE 15
 function russianRoulette(num) {
 
@@ -229,7 +240,7 @@ function russianRoulette(num) {
 // console.log(play()); // => should log 'reload to play again'
 // console.log(play()); // => should log 'reload to play again'
 
-
+/*
 // CHALLENGE 16
 function average() {
 
@@ -244,7 +255,7 @@ function average() {
 // console.log(avgSoFar(12)); // => should log 8
 // console.log(avgSoFar()); // => should log 8
 
-
+/*
 // CHALLENGE 17
 function makeFuncTester(arrOfTests) {
   
@@ -261,7 +272,7 @@ function makeFuncTester(arrOfTests) {
 // console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
 // console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
 
-
+/*
 // CHALLENGE 18
 function makeHistory(limit) {
 
@@ -278,7 +289,7 @@ function makeHistory(limit) {
 // console.log(myActions('undo')); // => should log 'code undone'
 // console.log(myActions('undo')); // => should log 'nothing to undo'
 
-
+/*
 // CHALLENGE 19
 function blackjack(array) {
 
