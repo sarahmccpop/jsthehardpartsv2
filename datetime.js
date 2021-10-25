@@ -1,10 +1,11 @@
 const d = new Date();
 const calltime = new Date(2021, 9, 25, 8, 0, 0, 0);
+const millisecsInMinute = 60000; 
 console.log("Date is " + d);
 console.log("Calltime was: " + calltime);
 
 function millisecondsToMinutes(milliseconds){
-    minutes = milliseconds / 60000;
+    minutes = milliseconds / millisecsInMinute;
     return minutes;
 }
 
