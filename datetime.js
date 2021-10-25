@@ -1,5 +1,17 @@
+/*import { formatDistance, subDays } from 'date-fns'
+import { format, compareAsc } from 'date-fns'
 
+const result = sub(new Date(2017, 5, 15, 15, 29, 20), {
+    years: 2,
+    months: 9,
+    weeks: 1,
+    days: 7,
+    hours: 5,
+    minutes: 9,
+    seconds: 30
+  }) */
 
+console.log(result);
 const calltime = new Date(2021, 9, 25, 8, 0, 0, 0);
 const wrap = new Date(2021,9, 25, 19, 0, 0, 0 );
 const beganWork = new Date(2021, 9, 25, 7, 30, 0, 0);
@@ -31,6 +43,7 @@ function minutesToMilliseconds(minutes){
     let milliseconds = minutes * 60000;
     return milliseconds;
 }
+
 
 function calculateHoursWorked(){
     const hoursWorked = finishedWork - beganWork;
