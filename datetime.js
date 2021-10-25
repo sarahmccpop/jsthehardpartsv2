@@ -25,14 +25,19 @@ const dayTypes = {
 }
 
 let lunchbreak = undefined;
-let typeOfDay = dayTypes.SWD;
+let typeOfDay = dayTypes.CWD;
 switch (typeOfDay) {
     case dayTypes.CWD:
         lunchbreak = minutesToMilliseconds(0);
+        break;
     case dayTypes.SCWD:
         lunchbreak = minutesToMilliseconds(30);
+        break;
     case dayTypes.SWD:
         lunchbreak = minutesToMilliseconds(60);    
+        break;
+    default:
+        console.log("In the default");    
 }
 
 const timeGivenPreCalltime = minutesToMilliseconds(15);
@@ -68,7 +73,7 @@ function calculateHoursWorked(){
 }
 
 function calculateHoursWorkedMinusGivenTime() {
-    const hoursWorkedMinusGivenTime = finishedWork - beganWork - timeGivenAfterWrap - timeGivenPreCalltime;
+    const hoursWorkedMinusGivenTime = finishedWork - beganWork - timeGivenAfterWrap - timeGivenPreCalltime - lunchbreak;
     return millisecondsToHours(hoursWorkedMinusGivenTime);
 }
 
@@ -86,7 +91,7 @@ function calculatePreCall(calltime){
 }
 
 console.log("Total hours worked was " + calculateHoursWorked());
-console.log("Total hours minus given time = " + calculateHoursWorkedMinusGivenTime());
+console.log("Total hours worked minus given time = " + calculateHoursWorkedMinusGivenTime());
 
 if(calculateHoursWorked() > calculateOnCameraHours()){
     console.log("Overtime may be due");
