@@ -116,6 +116,9 @@ switch (typeOfDay) {
         lunchbreak = minutesToMilliseconds(60);    
         console.log("Its a SWD")
         break
+    case dayTypes.REST:
+        lunchbreak = 0;
+        console.log("It's a rest day");   
     default:
         console.log("In the typeOfDay default")    
 }
