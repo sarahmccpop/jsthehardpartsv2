@@ -165,19 +165,24 @@ function calculateHoursWorkedMinusGivenTime() {
    
     return millisecondsToHours(hoursWorkedMinusGivenTime);
 }
-
 function calculateOnCameraHours(){
     const onCameraTime = wrap - calltime;
     return onCameraTime;
 }
 
-function calculatePreCall(calltime){
-    
-    //console.log("Given time " + givenTime);
+function calculatePreCall(){
     let preCall = calltime - beganWork;
     preCall = millisecondsToMinutes(preCall);
     return preCall;
 }
+
+function calculatePreCallPayment(){
+    let payablePreCall = calltime - timeGivenPreCalltime - beganWork;
+    console.log("Payabale precall " + millisecondsToMinutes(payablePreCall) + " minutes");
+}
+
+console.log("Precall time worked: " + calculatePreCall());
+calculatePreCallPayment();
 
 //console.log("Total hours worked was " + calculateHoursWorked());
 //console.log("Total hours worked minus given time = " + calculateHoursWorkedMinusGivenTime());
@@ -192,4 +197,4 @@ console.log("Precall was " + calculatePreCall(calltime) + " minutes");
 //console.log("Monday started " + day.MONDAY.BEGANWORK + " and Monday day type " + day.MONDAY.DAYTYPE + "hours worked " + day.MONDAY.WORKEDHOURS);
 
 
-console.log("Line 147: " + calculateHoursWorked(day.MONDAY));
+console.log("Line 200: " + calculateHoursWorked(day.MONDAY));
