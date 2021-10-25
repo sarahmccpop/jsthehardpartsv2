@@ -18,11 +18,26 @@ const calltime = new Date(2021, 9, 25, 8, 0, 0, 0);
 const wrap = new Date(2021,9, 25, 19, 0, 0, 0 );
 const expectedWrap = new Date(2021,9, 25, 19, 0, 0, 0 );
 
+const timeGivenPreCalltime = minutesToMilliseconds(15);
+const timeGivenAfterWrap = minutesToMilliseconds(15);
+
+const millisecondsInMinute = 60000; 
+const millisecondsInHour = 3600000;
+
 const dayTypes = {
     CWD: "continuousWorkingDay",
     SCWD: "semiContinuousWorkingDay",
     SWD: "standardWorkingDay",
 }
+
+const day = {
+    MONDAY: {
+        BEGANWORK: new Date(2021, 0, 13, 10, 30, 0, 0),
+        FINISHEDWORK: new Date(2021, 0, 13, 18, 30, 0, 0)
+    }
+}
+
+console.log("Monday started " + day.MONDAY.BEGANWORK);
 
 let lunchbreak = undefined;
 let typeOfDay = dayTypes.CWD;
@@ -40,11 +55,7 @@ switch (typeOfDay) {
         console.log("In the default");    
 }
 
-const timeGivenPreCalltime = minutesToMilliseconds(15);
-const timeGivenAfterWrap = minutesToMilliseconds(15);
 
-const millisecondsInMinute = 60000; 
-const millisecondsInHour = 3600000;
 
 console.log("Calltime was: " + calltime);
 
