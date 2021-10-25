@@ -24,40 +24,59 @@ const timeGivenAfterWrap = minutesToMilliseconds(15);
 const millisecondsInMinute = 60000; 
 const millisecondsInHour = 3600000;
 
+let lunchbreak = undefined;
+
+//console.log("Calltime was: " + calltime);
 const dayTypes = {
     CWD: "continuousWorkingDay",
     SCWD: "semiContinuousWorkingDay",
     SWD: "standardWorkingDay",
 }
 
-const day = {
-    MONDAY: {
-        BEGANWORK: new Date(2021, 0, 13, 10, 30, 0, 0),
-        FINISHEDWORK: new Date(2021, 0, 13, 18, 30, 0, 0)
-    }
-}
-
-console.log("Monday started " + day.MONDAY.BEGANWORK);
-
-let lunchbreak = undefined;
-let typeOfDay = dayTypes.CWD;
+let typeOfDay = dayTypes.CWD
 switch (typeOfDay) {
-    case dayTypes.CWD:
+    case dayTypes.CWD: 
         lunchbreak = minutesToMilliseconds(0);
-        break;
+        console.log("Its a CWD")
+        break
     case dayTypes.SCWD:
         lunchbreak = minutesToMilliseconds(30);
-        break;
+        console.log("Its a SCWD")
+        break
     case dayTypes.SWD:
         lunchbreak = minutesToMilliseconds(60);    
-        break;
+        console.log("Its a SWD")
+        break
     default:
-        console.log("In the default");    
+        console.log("In the typeOfDay default")    
 }
 
 
 
-console.log("Calltime was: " + calltime);
+const day = {
+    MONDAY: {
+        DATE: new Date("2021-10-18"),
+        BEGANWORK: new Date(2021, 9, 18, 8, 0, 0, 0),
+        FINISHEDWORK: new Date(2021, 9, 18, 20, 0, 0, 0),
+        CALLTIME: new Date(2021, 9, 18, 8, 0, 0, 0),
+        WRAPTIME: new Date(2021, 9, 18, 19, 0, 0, 0),
+        EXPECTEDWRAP: new Date(2021, 9, 18, 19, 0, 0, 0),
+        DAYTYPE: dayTypes.SWD
+    },
+    TUESDAY: {
+        BEGANWORK: new Date(2021, 9, 19, 20, 0, 0, 0),
+        FINISHEDWORK: new Date(2021, 9, 19, 20, 0, 0, 0),
+        CALLTIME: new Date(2021, 9, 19, 8, 0, 0, 0),
+        WRAPTIME: new Date(2021, 9, 19, 19, 0, 0, 0),
+        EXPECTEDWRAP: new Date(2021, 9, 19, 19, 0, 0, 0),
+        DAYTYPE: dayTypes.CWD
+    },
+    WEDNESDAY: {
+
+    }
+}
+let dayWorked = day.MONDAY;
+
 
 // this converts milliseconds to minutes
 function millisecondsToMinutes(milliseconds){
@@ -78,13 +97,24 @@ function minutesToMilliseconds(minutes){
 }
 
 // this calculates the hours worked
-function calculateHoursWorked(){
-    const hoursWorked = finishedWork - beganWork - lunchbreak;
+function calculateHoursWorked(dayWorked){
+    
+    let hoursWorked = 0;
+    switch (dayWorked) {
+        case day.MONDAY: 
+            hoursWorked = day.MONDAY.FINISHEDWORK - day.MONDAY.BEGANWORK;
+            console.log("Hours worked on Monday " + hoursWorked);
+            break;
+        default:
+            console.log("In the daysWorked default");    
+    }
     return millisecondsToHours(hoursWorked);
 }
 
 function calculateHoursWorkedMinusGivenTime() {
     const hoursWorkedMinusGivenTime = finishedWork - beganWork - timeGivenAfterWrap - timeGivenPreCalltime - lunchbreak;
+   
+   
     return millisecondsToHours(hoursWorkedMinusGivenTime);
 }
 
@@ -111,3 +141,7 @@ if(calculateHoursWorked() > calculateOnCameraHours()){
 }
 
 console.log("Precall was " + calculatePreCall(calltime) + " minutes");
+//console.log("Monday started " + day.MONDAY.BEGANWORK + " and Monday day type " + day.MONDAY.DAYTYPE + "hours worked " + day.MONDAY.WORKEDHOURS);
+
+
+console.log(calculateHoursWorked(day.MONDAY));
