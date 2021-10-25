@@ -31,6 +31,7 @@ const dayTypes = {
     CWD: "continuousWorkingDay",
     SCWD: "semiContinuousWorkingDay",
     SWD: "standardWorkingDay",
+    REST: "restDay"
 }
 
 let typeOfDay = dayTypes.CWD
@@ -46,6 +47,7 @@ const day = {
         DAYTYPE: dayTypes.SWD
     },
     TUESDAY: {
+        DATE: new Date("2021-10-19"),
         BEGANWORK: new Date(2021, 9, 19, 20, 0, 0, 0),
         FINISHEDWORK: new Date(2021, 9, 19, 20, 0, 0, 0),
         CALLTIME: new Date(2021, 9, 19, 8, 0, 0, 0),
@@ -53,7 +55,50 @@ const day = {
         EXPECTEDWRAP: new Date(2021, 9, 19, 19, 0, 0, 0),
         DAYTYPE: dayTypes.CWD
     },
-    WEDNESDAY: {
+        WEDNESDAY: {
+        DATE: new Date("2021-10-20"),
+        BEGANWORK: new Date(2021, 9, 20, 8, 0, 0, 0),
+        FINISHEDWORK: new Date(2021, 9, 20, 20, 0, 0, 0),
+        CALLTIME: new Date(2021, 9, 20, 8, 0, 0, 0),
+        WRAPTIME: new Date(2021, 9, 20, 19, 0, 0, 0),
+        EXPECTEDWRAP: new Date(2021, 9, 20, 19, 0, 0, 0),
+        DAYTYPE: dayTypes.SWD
+    },
+    THURSDAY: {
+        DATE: new Date("2021-10-21"),
+        BEGANWORK: new Date(2021, 9, 21, 8, 0, 0, 0),
+        FINISHEDWORK: new Date(2021, 9, 21, 20, 0, 0, 0),
+        CALLTIME: new Date(2021, 9, 21, 8, 0, 0, 0),
+        WRAPTIME: new Date(2021, 9, 21, 19, 0, 0, 0),
+        EXPECTEDWRAP: new Date(2021, 9, 21, 19, 0, 0, 0),
+        DAYTYPE: dayTypes.SWD
+    },
+    FRIDAY: {
+        DATE: new Date("2021-10-22"),
+        BEGANWORK: new Date(2021, 9, 22, 8, 0, 0, 0),
+        FINISHEDWORK: new Date(2021, 9, 22, 20, 0, 0, 0),
+        CALLTIME: new Date(2021, 9, 22, 8, 0, 0, 0),
+        WRAPTIME: new Date(2021, 9, 22, 19, 0, 0, 0),
+        EXPECTEDWRAP: new Date(2021, 9, 22, 19, 0, 0, 0),
+        DAYTYPE: dayTypes.SWD
+    },
+    SATURDAY: {
+        DATE: new Date("2021-10-23"),
+        BEGANWORK: undefined,
+        FINISHEDWORK: undefined,
+        CALLTIME: undefined,
+        WRAPTIME: undefined,
+        EXPECTEDWRAP: undefined,
+        DAYTYPE: dayTypes.REST
+    },
+    SUNDAY: {
+        DATE: new Date("2021-10-24"),
+        BEGANWORK: undefined,
+        FINISHEDWORK: undefined,
+        CALLTIME: undefined,
+        WRAPTIME: undefined,
+        EXPECTEDWRAP: undefined,
+        DAYTYPE: dayTypes.REST
 
     }
 }
