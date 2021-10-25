@@ -61,6 +61,7 @@ function addByX(x) {
 	function adding(input){
   input += x;
     console.log('Challenge 3B: answer is ' + input); 
+    return input;
   }
   return adding;
 }
@@ -104,8 +105,8 @@ function once(func) {
 // /*** Uncomment these to check your work! ***/
 const onceFunc = once(addByTwo);
 console.log("Challenge 4: " +onceFunc(4));  // => should log 6
-//console.log(onceFunc(10));  // => should log 6
-// console.log(onceFunc(9001));  // => should log 6
+console.log(onceFunc(10));  // => should log 6
+console.log(onceFunc(9001));  // => should log 6
 
 /*
 // CHALLENGE 5
