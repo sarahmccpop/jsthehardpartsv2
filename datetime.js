@@ -34,24 +34,6 @@ const dayTypes = {
 }
 
 let typeOfDay = dayTypes.CWD
-switch (typeOfDay) {
-    case dayTypes.CWD: 
-        lunchbreak = minutesToMilliseconds(0);
-        console.log("Its a CWD")
-        break
-    case dayTypes.SCWD:
-        lunchbreak = minutesToMilliseconds(30);
-        console.log("Its a SCWD")
-        break
-    case dayTypes.SWD:
-        lunchbreak = minutesToMilliseconds(60);    
-        console.log("Its a SWD")
-        break
-    default:
-        console.log("In the typeOfDay default")    
-}
-
-
 
 const day = {
     MONDAY: {
@@ -76,6 +58,24 @@ const day = {
     }
 }
 let dayWorked = day.MONDAY;
+switch (typeOfDay) {
+    case dayTypes.CWD: 
+        lunchbreak = minutesToMilliseconds(0);
+        console.log("Its a CWD")
+        break
+    case dayTypes.SCWD:
+        lunchbreak = minutesToMilliseconds(30);
+        console.log("Its a SCWD")
+        break
+    case dayTypes.SWD:
+        lunchbreak = minutesToMilliseconds(60);    
+        console.log("Its a SWD")
+        break
+    default:
+        console.log("In the typeOfDay default")    
+}
+
+
 
 
 // this converts milliseconds to minutes
@@ -103,7 +103,7 @@ function calculateHoursWorked(dayWorked){
     switch (dayWorked) {
         case day.MONDAY: 
             hoursWorked = day.MONDAY.FINISHEDWORK - day.MONDAY.BEGANWORK;
-            console.log("Hours worked on Monday " + hoursWorked);
+            console.log("Hours worked on Monday " + millisecondsToHours(hoursWorked)) + " hours";
             break;
         default:
             console.log("In the daysWorked default");    
@@ -131,17 +131,17 @@ function calculatePreCall(calltime){
     return preCall;
 }
 
-console.log("Total hours worked was " + calculateHoursWorked());
-console.log("Total hours worked minus given time = " + calculateHoursWorkedMinusGivenTime());
-
+//console.log("Total hours worked was " + calculateHoursWorked());
+//console.log("Total hours worked minus given time = " + calculateHoursWorkedMinusGivenTime());
+/*
 if(calculateHoursWorked() > calculateOnCameraHours()){
     console.log("Overtime may be due");
 } else {
     console.log("Overtime not due");
 }
-
+*/
 console.log("Precall was " + calculatePreCall(calltime) + " minutes");
 //console.log("Monday started " + day.MONDAY.BEGANWORK + " and Monday day type " + day.MONDAY.DAYTYPE + "hours worked " + day.MONDAY.WORKEDHOURS);
 
 
-console.log(calculateHoursWorked(day.MONDAY));
+console.log("Line 147: " + calculateHoursWorked(day.MONDAY));
