@@ -61,7 +61,7 @@ function addByX(x) {
 	function adding(input){
   input += x;
     console.log('Challenge 3B: answer is ' + input); 
-    return input;
+  return input;  
   }
   return adding;
 }
@@ -80,6 +80,8 @@ addByThree(2); // => should return 5
 const addByFour = addByX(4);
 addByFour(4); // => should return 8
 addByFour(5); // => should return 9
+
+// DEOCRATION 
 
 
 // CHALLENGE 4
@@ -108,18 +110,65 @@ console.log("Challenge 4: " +onceFunc(4));  // => should log 6
 console.log(onceFunc(10));  // => should log 6
 console.log(onceFunc(9001));  // => should log 6
 
-/*
-// CHALLENGE 5
-function after(count, func) {
+// To add a permanent memory to an existing function we have to create a new function that will run the existing function inside of itself 
+// Will's code
 
+const oncify = (convertMe) => {
+  let counter = 0
+  const inner = (input) =>{
+  	if (counter === 0){
+      const output = convertMe(input)
+      counter++
+      return output
+  		}
+   return "Sorry, I've already been run once"
+  }
+  return inner
 }
 
+const multiplyBy2 = num => num * 2 
+const oncifiedMultiplyBy2 = oncify(multiplyBy2)
+console.log(oncifiedMultiplyBy2(10))
+console.log(oncifiedMultiplyBy2(7))
+
+// PARTIAL APPLICATION
+
+const multiply = (a, b) => a * b
+function prefillFunction (fn, prefilledValue){
+  const inner = (liveInput) => {
+    const output = fn(liveInput, prefilledValue)
+    return output
+  }
+  return inner
+}
+
+const multiplyByTWO = prefillFunction(multiply, 2)
+
+const result = multiplyByTWO(5)
+console.log(result)
+
+
+// CHALLENGE 5
+function after(count, func) {
+	let counter = 0;
+  const inner = (input) => {
+  if (counter<=count){
+    func()
+    counter++
+    console.log("Counter is " + counter)
+	  }
+  	
+	}
+  return "Over count"
+}
+
+
 // /*** Uncomment these to check your work! ***/
-// const called = function() { console.log('hello') };
-// const afterCalled = after(3, called);
-// afterCalled(); // => nothing is printed
-// afterCalled(); // => nothing is printed
-// afterCalled(); // => 'hello' is printed
+const called = function() { console.log('hello') };
+const afterCalled = after(3, called);
+afterCalled(); // => nothing is printed
+afterCalled(); // => nothing is printed
+afterCalled(); // => 'hello' is printed
 
 /*
 // CHALLENGE 6

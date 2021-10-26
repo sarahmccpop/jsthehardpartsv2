@@ -1,4 +1,11 @@
-/*import { formatDistance, subDays } from 'date-fns'
+/*
+maybe you can try to write functions which given time in, time out, and unit times, 
+can calculate pre-call, de-rig.
+If you manage pre-call and de-rig there's Camera OT, and Early Call to do next, and then 
+Broken Turnaround and Compensatory Rest
+
+
+import { formatDistance, subDays } from 'date-fns'
 import { format, compareAsc } from 'date-fns'
 
 const result = sub(new Date(2017, 5, 15, 15, 29, 20), {
@@ -170,7 +177,7 @@ function calculateOnCameraHours(){
     return onCameraTime;
 }
 
-function calculatePreCall(){
+function calculatePreCallTotalWorked(){
     let preCall = calltime - beganWork;
     preCall = millisecondsToMinutes(preCall);
     return preCall;
@@ -181,7 +188,7 @@ function calculatePreCallPayment(){
     console.log("Payabale precall " + millisecondsToMinutes(payablePreCall) + " minutes");
 }
 
-console.log("Precall time worked: " + calculatePreCall());
+console.log("Precall time worked: " + calculatePreCallTotalWorked());
 calculatePreCallPayment();
 
 //console.log("Total hours worked was " + calculateHoursWorked());
@@ -193,7 +200,7 @@ if(calculateHoursWorked() > calculateOnCameraHours()){
     console.log("Overtime not due");
 }
 */
-console.log("Precall was " + calculatePreCall(calltime) + " minutes");
+console.log("Precall was " + calculatePreCallTotalWorked(calltime) + " minutes");
 //console.log("Monday started " + day.MONDAY.BEGANWORK + " and Monday day type " + day.MONDAY.DAYTYPE + "hours worked " + day.MONDAY.WORKEDHOURS);
 
 
