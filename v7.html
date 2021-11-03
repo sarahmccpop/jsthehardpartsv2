@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function copyArrayandManipulate(array, instructions){
+            const output = [];
+            for (let i = 0; i < array.length; i++){
+                output.push(instructions(array[i]));
+            }
+            return output;
+        }
+        function multipyBy2(input){
+            return input * 2; 
+        }
+        const result = copyArrayandManipulate([1, 2, 3], multipyBy2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
