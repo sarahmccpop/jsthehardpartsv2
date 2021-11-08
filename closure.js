@@ -1,6 +1,6 @@
 // CHALLENGE 1
 function createFunction() {
-	function sayHello() {
+  function sayHello() {
     console.log("Challenge 1: Hello");
   }
   return sayHello;
@@ -11,32 +11,28 @@ function createFunction() {
 const function1 = createFunction();
 function1(); // => should console.log('hello');
 
-
 // CHALLENGE 2
 function createFunctionPrinter(input) {
-	
-  function printTest(){
-    console.log("Challenge 2: " +input);
+  function printTest() {
+    console.log("Challenge 2: " + input);
   }
-  
+
   return printTest;
-  
 }
 
 // /*** Uncomment these to check your work! ***/
 
-const printSample = createFunctionPrinter('sample');
+const printSample = createFunctionPrinter("sample");
 printSample(); // => should console.log('sample');
-const printHello = createFunctionPrinter('hello');
+const printHello = createFunctionPrinter("hello");
 printHello(); // => should console.log('hello');
-
 
 // CHALLENGE 3
 function outer() {
   let counter = 0; // this variable is outside incrementCounter's scope
-  function incrementCounter () {
-    counter ++;
-    console.log('Challenger 3: counter =' + counter);
+  function incrementCounter() {
+    counter++;
+    console.log("Challenger 3: counter =" + counter);
   }
   return incrementCounter;
 }
@@ -56,12 +52,11 @@ willCounter();
 jasCounter();
 willCounter();
 
-
 function addByX(x) {
-	function adding(input){
-  input += x;
-    console.log('Challenge 3B: answer is ' + input); 
-  return input;  
+  function adding(input) {
+    input += x;
+    console.log("Challenge 3B: answer is " + input);
+    return input;
   }
   return adding;
 }
@@ -81,21 +76,20 @@ const addByFour = addByX(4);
 addByFour(4); // => should return 8
 addByFour(5); // => should return 9
 
-// DEOCRATION 
-
+// DEOCRATION
 
 // CHALLENGE 4
 function once(func) {
   let counter = 0;
   let result = 0;
-  console.log("Result is: " +result)
+  console.log("Result is: " + result);
   function runOnce(num) {
     if (counter === 0) {
       console.log("Got to here");
-      console.log("Result is: " +result)
-      console.log('Num is ' + num);
+      console.log("Result is: " + result);
+      console.log("Num is " + num);
       result = func(num);
-      console.log("Result is: " +result)
+      console.log("Result is: " + result);
       counter++;
     }
 
@@ -106,75 +100,74 @@ function once(func) {
 
 // /*** Uncomment these to check your work! ***/
 const onceFunc = once(addByTwo);
-console.log("Challenge 4: " +onceFunc(4));  // => should log 6
-console.log(onceFunc(10));  // => should log 6
-console.log(onceFunc(9001));  // => should log 6
+console.log("Challenge 4: " + onceFunc(4)); // => should log 6
+console.log(onceFunc(10)); // => should log 6
+console.log(onceFunc(9001)); // => should log 6
 
-// To add a permanent memory to an existing function we have to create a new function that will run the existing function inside of itself 
+// To add a permanent memory to an existing function we have to create a new function that will run the existing function inside of itself
 // Will's code
 
 const oncify = (convertMe) => {
-  let counter = 0
-  const inner = (input) =>{
-  	if (counter === 0){
-      const output = convertMe(input)
-      counter++
-      return output
-  		}
-   return "Sorry, I've already been run once"
-  }
-  return inner
-}
+  let counter = 0;
+  const inner = (input) => {
+    if (counter === 0) {
+      const output = convertMe(input);
+      counter++;
+      return output;
+    }
+    return "Sorry, I've already been run once";
+  };
+  return inner;
+};
 
-const multiplyBy2 = num => num * 2 
-const oncifiedMultiplyBy2 = oncify(multiplyBy2)
-console.log(oncifiedMultiplyBy2(10))
-console.log(oncifiedMultiplyBy2(7))
+const multiplyBy2 = (num) => num * 2;
+const oncifiedMultiplyBy2 = oncify(multiplyBy2);
+console.log(oncifiedMultiplyBy2(10));
+console.log(oncifiedMultiplyBy2(7));
 
 // PARTIAL APPLICATION
 
-const multiply = (a, b) => a * b
-function prefillFunction (fn, prefilledValue){
+const multiply = (a, b) => a * b;
+function prefillFunction(fn, prefilledValue) {
   const inner = (liveInput) => {
-    const output = fn(liveInput, prefilledValue)
-    return output
-  }
-  return inner
+    const output = fn(liveInput, prefilledValue);
+    return output;
+  };
+  return inner;
 }
 
-const multiplyByTWO = prefillFunction(multiply, 2)
+const multiplyByTWO = prefillFunction(multiply, 2);
 
-const result = multiplyByTWO(5)
-console.log(result)
-
+const result = multiplyByTWO(5);
+console.log(result);
 
 // CHALLENGE 5
 function after(count, func) {
-	let counter = 0;
+  let counter = 0;
   const inner = (input) => {
-  if (counter<=count){
-    func()
-    counter++
-    console.log("Counter is " + counter)
-	  }
-  	
-	}
-  return "Over count"
+    if (counter <= count) {
+      func();
+      counter++;
+      console.log("Counter is " + counter);
+    }
+  };
+  return "Over count";
 }
 
-
 // /*** Uncomment these to check your work! ***/
-const called = function() { console.log('hello') };
+const called = function () {
+  console.log("hello");
+};
 const afterCalled = after(3, called);
 //afterCalled(); // => nothing is printed
 //afterCalled(); // => nothing is printed
 //afterCalled(); // => 'hello' is printed
 
-function printHelloagain(){
-    console.log("Hello");
-  }
-  setTimeout(printHelloagain, 1000);
-  console.log("Me first");
+function printHelloagain() {
+  console.log("Hello");
+}
+setTimeout(printHelloagain, 1000);
+console.log("Me first");
 
 /*
 // CHALLENGE 6
@@ -182,8 +175,7 @@ function delay(func, wait) {
 
 }
 
-*/ 
-
+*/
 
 /*
 // CHALLENGE 7

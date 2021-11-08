@@ -14,32 +14,34 @@ function longest(s1, s2) {
 // version 2
 // attempt trying with each change broken into a function
 // this version also passes codewars
-function longest2(s1, s2){
-    let s1Array = convertStringtoLowerCaseArrayOfLetters(s1);
-    const s2Array = convertStringtoLowerCaseArrayOfLetters(s2);
-    s1Array = combineTwoArraysToOneArray(s1Array, s2Array);
-    s1Array = returnUniqueArray(s1Array);
-    s1Array = sortAndJoin(s1Array);
-    return s1Array;
+function longest2(s1, s2) {
+  let s1Array = stringAllLowercase(s1);
+  const s2Array = stringAllLowercase(s2);
+  s1Array = oneArrayFromTwoCombinedArrays(s1Array, s2Array);
+  s1Array = uniqueSetFromArray(s1Array);
+  s1Array = sortedStringFromArray(s1Array);
+  return s1Array;
 }
 
-function convertStringtoLowerCaseArrayOfLetters(string){
-    return string.toLowerCase().split('');
+function stringAllLowercase(string) {
+  return string.toLowerCase().split("");
 }
 
-function combineTwoArraysToOneArray(array1, array2){
-    const newArray = array1.concat(array2);
-    return newArray;
+function oneArrayFromTwoCombinedArrays(array1, array2) {
+  const newArray = array1.concat(array2);
+  return newArray;
 }
 
-function returnUniqueArray(array){
-    const uniqueArray = [...new Set(array)];
-    return uniqueArray;
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+function uniqueSetFromArray(array) {
+  const uniqueSet = [...new Set(array)];
+  return uniqueSet;
 }
 
-function sortAndJoin(array){
-    return array.sort().join("");
+function sortedStringFromArray(array) {
+  return array.sort().join("");
 }
-console.log(longest("Sarah", "Harry"));
-console.log(longest2("Sarah", "Harry"));
 
+// testing
+console.log("Version 1: ", longest("Sarah", "Harry"));
+console.log("Version 2: ", longest2("Sarah", "Harry"));
