@@ -14,24 +14,25 @@ function sequenceSum(begin, end, step){
 function sequenceSum2(begin, end, step){  
     let returnedValue = 0;
     if (begin < end){
-    for (let i = begin; i <= end; i+=step){
-        returnedValue+=i;
+      for (let i = begin; i <= end; i+=step){
+          returnedValue+=i;
+      }
     }
+
     return returnedValue;
-    }
 };
 
-function sequenceSum3(begin, end, step){
-  if (begin > end){
-      return 0
-  } 
-  
-  let returnedValue = 0;
+function summedSequence(begin, end, step) {
+  let total = 0;
   for (let i = begin; i <= end; i+=step){
-      returnedValue+=i;
+      total+=i;
   }
 
-  return returnedValue;
+  return total
+}
+
+function sequenceSum3(begin, end, step){
+  return begin > end ? 0 : summedSequence(begin, end, step);
 };
 
 
